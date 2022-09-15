@@ -1,17 +1,14 @@
-// Import stylesheets
-import './style.css';
 import { DateTime, Interval } from 'luxon';
-
-// Write TypeScript code!
-const appDiv: HTMLElement = document.getElementById('app');
-appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
+import moment from 'moment';
 
 const now = DateTime.now();
 
-const theDateBefore = DateTime.utc();
+const token = DateTime.utc();
+
+const ROWTIME_FORMAT = 'YYYY-MM-DDTHH:mm';
 
 console.log(
-  Interval.before(DateTime.utc(), 0).isAfter(DateTime.now()),
-  theDateBefore,
-  now
+  `moment Format => ${moment().format(ROWTIME_FORMAT)}
+   luxonD Format => ${DateTime.local().toFormat(`yyyy-MM-dd'T'HH:mm`)}
+  `
 );
