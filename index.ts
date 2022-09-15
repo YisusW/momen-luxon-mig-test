@@ -8,7 +8,7 @@ const token = DateTime.utc();
 const ROWTIME_FORMAT = 'YYYY-MM-DDTHH:mm';
 
 console.log(
-  `moment Format => ${moment().format(ROWTIME_FORMAT)}
-   luxonD Format => ${DateTime.local().toFormat(`yyyy-MM-dd'T'HH:mm`)}
+  `moment Format => ${moment().subtract(10, 'minutes').format('HH:mm')}
+   luxonD Format => ${DateTime.local().minus({ minutes: 10 }).toFormat('HH:mm')}
   `
 );
