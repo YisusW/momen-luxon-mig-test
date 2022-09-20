@@ -4,11 +4,10 @@ import moment from 'moment';
 console.log(
   `moment diff => ${moment().diff(
     moment().utc().subtract(100, 'hours'),
-    'minutes'
+    'hours'
   )}
    luxonD diff => ${
-     DateTime.local().diff(DateTime.utc().minus({ hours: 100 }), 'minutes')
-       .minutes
+     DateTime.local().diff(DateTime.utc().minus({ hours: 100 }), 'hours').hours
    }
   `
 );
