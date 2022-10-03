@@ -1,4 +1,4 @@
-import { DateTime, Interval } from 'luxon';
+import { DateTime, Duration, Interval } from 'luxon';
 import moment from 'moment';
 
 const date = new Date(2016, 5, 5);
@@ -12,6 +12,6 @@ console.log(
 );
 
 console.log(
-  `moment format => ${moment().format('DD-MMM HH:mm')}
-  luxonD format => ${DateTime.now().toFormat('dd-MMM HH:mm')}`
+  `moment format => ${moment()}
+  luxonD format => ${DateTime.now().toHTTP()}`
 );
