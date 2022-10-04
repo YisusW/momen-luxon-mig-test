@@ -12,6 +12,69 @@ console.log(
 );
 
 console.log(
-  `moment format => ${moment()}
-  luxonD format => ${DateTime.now().toHTTP()}`
+  `moment format => ${moment().format('HH:mm')}
+  luxonD format => ${DateTime.now().toFormat('T')}`
 );
+
+const dateToDiff = new Date(2022, 4, 19);
+
+// NOT SAME
+
+const momentNow = moment(new Date());
+const dateTimeN = DateTime.fromJSDate(new Date());
+
+const isSameOrAfter = (current, compareDate) =>
+  Interval.before(current, 0).equals(Interval.after(compareDate, 0)) ||
+  Interval.before(current, 0).isAfter(compareDate);
+
+console.log(`
+  moment => ${moment(dateToDiff).isSameOrAfter(momentNow)}
+  luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), dateTimeN)}
+`);
+
+const SAME_DATE = dateToDiff;
+
+// THE SAME
+
+const momentSame = moment(SAME_DATE);
+const luxonSame = DateTime.fromJSDate(SAME_DATE);
+
+console.log(`
+  SAME
+  moment => ${moment(dateToDiff).isSameOrAfter(momentSame)}
+  luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), luxonSame)}
+`);
+
+// AFTER
+
+const AFTER_DATE = new Date(2022, 4, 20);
+
+const momentAfter = moment(AFTER_DATE);
+const luxonAfter = DateTime.fromJSDate(AFTER_DATE);
+
+console.log(`
+  AFTER
+  moment => ${moment(dateToDiff).isSameOrAfter(momentAfter)}
+  luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), luxonAfter)}
+`);
+
+// Before
+
+const BEFORE_DATE = new Date(2022, 3, 20);
+
+const momentBefore = moment(BEFORE_DATE);
+const luxonBefore = DateTime.fromJSDate(BEFORE_DATE);
+
+console.log(`
+  AFTER
+  moment => ${moment(dateToDiff).isSameOrAfter(momentBefore)}
+  luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), luxonBefore)}
+`);
+
+// positions
+
+console.log(`
+  AFTER
+  moment => ${moment(dateToDiff).isSameOrAfter(momentBefore)}
+  luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), luxonBefore)}
+`);
