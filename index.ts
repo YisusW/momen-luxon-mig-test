@@ -16,6 +16,9 @@ console.log(
   luxonD format => ${DateTime.now().toFormat('T')}`
 );
 
+/**
+ * return 19/04/2022 new Date(2022, 4, 19);
+ */
 const dateToDiff = new Date(2022, 4, 19);
 
 // NOT SAME
@@ -77,4 +80,14 @@ console.log(`
   AFTER
   moment => ${moment(dateToDiff).isSameOrAfter(momentBefore)}
   luxon =>  ${isSameOrAfter(DateTime.fromJSDate(dateToDiff), luxonBefore)}
+`);
+
+// testing isBefore function
+
+console.log(`
+  BEFORE
+  moment => ${moment(dateToDiff).isBefore(momentBefore)}
+  luxon =>  ${Interval.after(DateTime.fromJSDate(dateToDiff), 0).isBefore(
+    luxonBefore
+  )}
 `);
