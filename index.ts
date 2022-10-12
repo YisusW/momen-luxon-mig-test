@@ -12,8 +12,8 @@ console.log(
 );
 
 console.log(
-  `moment format => ${moment().format('HH:mm')}
-  luxonD format => ${DateTime.now().toFormat('T')}`
+  `moment format => ${moment().format('YYMMDD')}
+  luxonD format => ${DateTime.now().toFormat('yyMMdd')}`
 );
 
 /**
@@ -89,5 +89,20 @@ console.log(`
   moment => ${moment(dateToDiff).isBefore(momentBefore)}
   luxon =>  ${Interval.after(DateTime.fromJSDate(dateToDiff), 0).isBefore(
     luxonBefore
+  )}
+`);
+
+const isBetween = function (reference, low, hight) {
+  console.log(low, reference);
+  return reference > low && reference < hight;
+};
+
+console.log(`
+  IS_BETWEEN
+  moment => ${moment('2010-04-25').isBetween('2010-04-02', '2010-04-29')}
+  luxon => ${isBetween(
+    DateTime.fromISO('2010-04-25'),
+    DateTime.fromISO('2010-04-02'),
+    DateTime.fromISO('2010-04-29')
   )}
 `);
