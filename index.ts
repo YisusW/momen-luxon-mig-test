@@ -12,8 +12,8 @@ console.log(
 );
 
 console.log(
-  `moment format => ${moment().format('YYMMDD')}
-  luxonD format => ${DateTime.now().toFormat('yyMMdd')}`
+  `moment format => ${moment().format('DD-MMM HH:mm')}
+  luxonD format => ${DateTime.now().toFormat('dd-MMM HH:mm')}`
 );
 
 /**
