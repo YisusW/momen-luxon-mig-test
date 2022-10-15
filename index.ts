@@ -27,8 +27,7 @@ const momentNow = moment(new Date());
 const dateTimeN = DateTime.fromJSDate(new Date());
 
 const isSameOrAfter = (current, compareDate) =>
-  Interval.before(current, 0).equals(Interval.after(compareDate, 0)) ||
-  Interval.before(current, 0).isAfter(compareDate);
+  current.toMillis() === compareDate.toMillis() || current > compareDate;
 
 console.log(`
   moment => ${moment(dateToDiff).isSameOrAfter(momentNow)}
