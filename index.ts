@@ -1,4 +1,4 @@
-import { DateTime, Duration, Interval } from 'luxon';
+import { DateTime, Interval } from 'luxon';
 import moment from 'moment';
 
 const date = new Date(2016, 5, 5);
